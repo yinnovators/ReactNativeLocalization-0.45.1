@@ -13,12 +13,12 @@
  */
 'use strict';
 import { NativeModules } from 'react-native';
-var localization = NativeModules.ReactLocalization;
+var localization = NativeModules.I18nManager;
 if (!localization) {
     console.error("Something went wrong initializing the native ReactLocalization module.\nPlease check your configuration.\nDid you run 'react-native link'?");
 }
 
-var interfaceLanguage = localization.language.replace(/_/g, '-');
+var interfaceLanguage = localization.localeIdentifier.replace(/_/g, '-');
 class LocalizedStrings {
 
     _getBestMatchingLanguage(language, props) {
